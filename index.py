@@ -1,26 +1,26 @@
-import xml.etree.ElementTree as XmlElementTree 
+import xml.etree.ElementTree as XmlElementTree 					#	Импортируем XML
 import httplib2
-import uuid
+import uuid									#	Импортируем библиотеки
 from config import ***
  
 ***_HOST = '***'
 ***_PATH = '/***_xml'
-CHUNK_SIZE = 1024 ** 2
+CHUNK_SIZE = 1024 ** 2								#	Определяем конфигурации
  
 def speech_to_text(filename=None, bytes=None, request_id=uuid.uuid4().hex, topic='notes', lang='ru-RU',
-               	key=***_API_KEY):
-  
-	if filename:
-    	with open(filename, 'br') as file:
-        	bytes = file.read()
-	if not bytes:
-    	raise Exception('Neither file name nor bytes provided.')
+               	key=***_API_KEY): 						# Определяем функцию speech_to_text, у нее 6 параметров
+  							
+	if filename:								#	Если файл существует то
+    	with open(filename, 'br') as file: 					#	Открываем файл для чтения
+        	bytes = file.read()						#	Присваиваем переменной прочитанную строку
+	if not bytes:								#	Если сорока пуста то
+    	raise Exception('Neither file name nor bytes provided.')		#	Возвращаем исключение 
  
   
-	bytes = convert_to_pcm16b16000r(in_bytes=bytes)
+	bytes = convert_to_pcm16b16000r(in_bytes=bytes)				#	Конвертация
  
 	
-	url = ***_PATH + '?uuid=%s&key=%s&topic=%s&lang=%s' % (
+	url = ***_PATH + '?uuid=%s&key=%s&topic=%s&lang=%s' % (			#	Собираем путь из переменных и конфигураций
     	request_id,
     	key,
     	topic,
@@ -28,7 +28,7 @@ def speech_to_text(filename=None, bytes=None, request_id=uuid.uuid4().hex, topic
 	)
  
 	
-	chunks = read_chunks(CHUNK_SIZE, bytes)
+	chunks = read_chunks(CHUNK_SIZE, bytes)					#	
  
 	
 	connection = httplib2.HTTPConnectionWithTimeout(***_HOST)
