@@ -3,7 +3,7 @@ import httplib2
 import uuid									#	Импортируем библиотеки
 from config import ***
 
- 
+test
 ***_HOST = '***'
 ***_PATH = '/***_xml'
 
