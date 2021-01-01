@@ -5,7 +5,6 @@ from config import ***
  
 ***_HOST = '***'
 ***_PATH = '/***_xml'
-***_TEST = 'test   '
 
 
 CHUNK_SIZE = 1024 ** 2								#	Определяем конфигурации
