@@ -2,6 +2,7 @@ import xml.etree.ElementTree as XmlElementTree 					#	Импортируем XML
 import httplib2
 import uuid									#	Импортируем библиотеки
 from config import ***
+
  
 ***_HOST = '***'
 ***_PATH = '/***_xml'
