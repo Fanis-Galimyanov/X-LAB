@@ -5,6 +5,9 @@ from config import ***
  
 ***_HOST = '***'
 ***_PATH = '/***_xml'
+
+
+
 CHUNK_SIZE = 1024 ** 2								#	Определяем конфигурации
  
 def speech_to_text(filename=None, bytes=None, request_id=uuid.uuid4().hex, topic='notes', lang='ru-RU',
